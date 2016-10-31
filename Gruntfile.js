@@ -5,11 +5,19 @@ module.exports = function(grunt) {
 				'src/Loader.js', 'src/Schedular.js', 
 				'src/EnhancedChat.js', 'src/Main.js', 'src/Footer.js' ];
 
+	var opkg = grunt.file.readJSON('package.json');
 	grunt.initConfig({
+		pkg: opkg,
+		
 		concat: {
+			options: {
+				process: function(src, filepath) {
+					return (filepath != "src/UserScriptHeader.js"?'\n// Source: ' + filepath + '\n\n' : "") + src.replace(/@VERSION@/g, opkg.version);
+				}
+			},
 			all: {
 				src: files,
-				dest: 'pmd-roleplay-extended-chat.user.js',
+				dest: 'dist/<%= pkg.name %>.user.js',
 			}
 		},
 

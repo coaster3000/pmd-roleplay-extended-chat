@@ -4,6 +4,6 @@
 // @description	Extends the functionality of the pmd-roleplay chatbox.
 // @include	http://pmd-roleplay.forumotion.org/chatbox*
 // @include	https://pmd-roleplay.forumotion.org/chatbox*
-// @version	0.0.1
+// @version	@VERSION@
 // @grant	none
 // ==/UserScript==
